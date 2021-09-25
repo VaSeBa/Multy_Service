@@ -32,11 +32,11 @@ public class MainMatrix {
             out("Concurrent thread time, sec: %.3f", duration);
             concurrentThreadSum += duration;
 
-            start = System.currentTimeMillis();
-            final int[][] dartMatrixC = MatrixUtil.concurrentMultiplyDarthVader(matrixA, matrixB, executor);
-            duration = (System.currentTimeMillis() - start) / 1000.;
-            out("Dart thread time, sec: %.3f", duration);
-            dartThreadSum += duration;
+//            start = System.currentTimeMillis();
+//            final int[][] dartMatrixC = MatrixUtil.concurrentMultiplyDarthVader(matrixA, matrixB, executor);
+//            duration = (System.currentTimeMillis() - start) / 1000.;
+//            out("Dart thread time, sec: %.3f", duration);
+//            dartThreadSum += duration;
 
             if (!MatrixUtil.compare(matrixC, concurrentMatrixC)) {
                 System.err.println("Comparison failed");
