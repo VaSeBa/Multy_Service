@@ -16,6 +16,7 @@ public class MainMatrix {
 
         double singleThreadSum = 0.;
         double concurrentThreadSum = 0.;
+        double dartThreadSum = 0.;
         int count = 1;
         while (count < 6) {
             System.out.println("Pass " + count);
@@ -26,10 +27,16 @@ public class MainMatrix {
             singleThreadSum += duration;
 
             start = System.currentTimeMillis();
-            final int[][] concurrentMatrixC = MatrixUtil.concurrentMultiply(matrixA, matrixB, executor);
+            final int[][] concurrentMatrixC = MatrixUtil.concurrentMultiplyStreams(matrixA, matrixB, Runtime.getRuntime().availableProcessors() - 1);
             duration = (System.currentTimeMillis() - start) / 1000.;
             out("Concurrent thread time, sec: %.3f", duration);
             concurrentThreadSum += duration;
+
+            start = System.currentTimeMillis();
+            final int[][] dartMatrixC = MatrixUtil.concurrentMultiplyDarthVader(matrixA, matrixB, executor);
+            duration = (System.currentTimeMillis() - start) / 1000.;
+            out("Dart thread time, sec: %.3f", duration);
+            dartThreadSum += duration;
 
             if (!MatrixUtil.compare(matrixC, concurrentMatrixC)) {
                 System.err.println("Comparison failed");
