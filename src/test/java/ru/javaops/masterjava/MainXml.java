@@ -30,12 +30,12 @@ public class MainXml {
     private static final Comparator<User> USER_COMPARATOR = Comparator.comparing(User::getValue).thenComparing(User::getEmail);
 
     public static void main(String[] args) throws Exception {
-        if (args.length != 1) {
+        if (args.length != 2) {
             System.out.println("Required argument: projectName");
             System.exit(1);
         }
         String projectName = args[0];
-        URL payloadUrl = Resources.getResource("payload.xml");
+        URL payloadUrl = Resources.getResource(args[1]);
 
         Set<User> users = parseByJaxb(projectName, payloadUrl);
         users.forEach(System.out::println);
