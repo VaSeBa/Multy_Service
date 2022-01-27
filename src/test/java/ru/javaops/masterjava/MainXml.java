@@ -43,7 +43,7 @@ public class MainXml {
         System.out.println();
         String html = toHtml(users, projectName);
         System.out.println(html);
-        try (Writer writer = Files.newBufferedWriter(Paths.get("/mnt/data/Java_Projects/masterjava/out/users.html"))) {
+        try (Writer writer = Files.newBufferedWriter(Paths.get("out/users.html"))) {
             writer.write(html);
         }
 
