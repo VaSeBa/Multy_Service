@@ -15,6 +15,7 @@
         <module>common</module>
         <module>parent</module>
         <module>parent-web</module>
+        <module>persist</module>
 
         <module>test</module>
         <module>web</module>
