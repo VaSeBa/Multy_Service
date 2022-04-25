@@ -5,5 +5,4 @@ target
 log
 patches
 *.conf
-/config_templates
-/mnt/data/Java_Projects/masterjava/services/mail-service/src/main/resources/mail.conf
+.gitignore
