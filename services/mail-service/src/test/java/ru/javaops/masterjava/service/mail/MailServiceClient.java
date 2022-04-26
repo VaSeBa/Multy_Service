@@ -9,14 +9,14 @@ import java.net.URL;
 
 public class MailServiceClient {
 
-    public static void main(String[] args) throws MalformedURLException {
-        Service service = Service.create(
-                new URL("http://localhost:8080/mail/mailService?wsdl"),
-                new QName("http://mail.service.masterjava.javaops.ru/", "MailServiceImplService"));
+  public static void main(String[] args) throws MalformedURLException {
+    Service service = Service.create(
+        new URL("http://localhost:8080/mail/mailService?wsdl"),
+        new QName("http://mail.javaops.ru/", "MailServiceImplService"));
 
-        MailService mailService = service.getPort(MailService.class);
-        mailService.sendMail(ImmutableList.of(
-                new Addressee("badasin.valentin@yandex.ru", "badasin.valentin@yandex.ru"),
-                new Addressee("Bad Email <bad_email.ru>")), null, "Subject", "Body");
-    }
+    MailService mailService = service.getPort(MailService.class);
+    mailService.sendMail(ImmutableList.of(
+        new Addressee("Мастер Java <masterjava@javaops.ru>"),
+        new Addressee("masterjava@javaops.ru", null)), null, "Subject", "Body");
+  }
 }
